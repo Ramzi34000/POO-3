@@ -21,14 +21,21 @@ class Parc:
 
     def entrerVoiture(self, voiture):
 
+        if voiture in self.listeVoitures:
+            print("La voiture existe déjà")
+        else:
+            if len(self.listeVoitures) < self.capacite:
+                self.listeVoitures.append(voiture)
+                print("Voiture ajoutée")
+            else:
+                print("Parc plein")
+
+
+
+    def sortirVoiture(self, voiture):
+
         if voiture in self.listedesVoitures:
-            print("La voiture existe déjà dans le parc")
-            return
-
-        if len(self.listedesVoitures) >= self.capacite:
-            print("Le parc est plein")
-            return
-
-        self.listedesVoitures.append(voiture)
-        print("Voiture ajoutée au parc")
-
+            self.listedesVoitures.remove(voiture)
+            print("Voiture retirée du parc")
+        else:
+            print("La voiture n'est pas dans le parc")
